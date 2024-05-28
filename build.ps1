@@ -9,4 +9,4 @@ docker tag "$image_name`:$tag" "$acr_login_server/$image_name`:$tag"
 docker push "$acr_login_server/$image_name`:$tag"
 
 
-# docker run -e ROBOFLOW_API_KEY="my_api_key" -e $FRAMES_PATH="c:\path\to\images\" "$acr_login_server/$image_name`:$tag"
+# docker run -e ROBOFLOW_API_KEY="my_api_key" -e $FRAMES_PATH="c:\path\to\images\0" "$acr_login_server/$image_name`:$tag"
