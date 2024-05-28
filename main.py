@@ -2,8 +2,9 @@ import cv2, datetime, time, os
 from roboflow import Roboflow
 
 # main.py
-imagepath = "c:/dev/cameras/bunnyai/images/generate_frames/"
-rf = Roboflow(api_key="mlOspTm3mXg4nuDnyqJb")
+imagepath = "/frames"
+key = os.environ["ROBOFLOW_API_KEY"]
+rf = Roboflow(api_key=key)
 
 def rf_upload(path):
     try:    
@@ -12,6 +13,7 @@ def rf_upload(path):
         project = rf.workspace(workspaceId).project(projectId)
 
         # Upload the image to your project
+        print(f"Uploading {path} to Roboflow project {workspaceId}/{projectId}")
         project.upload(f"{path}")
 
         # Delete stored image
@@ -54,9 +56,6 @@ def main():
             print("Error storing image")
         
         rf_upload(f"{imagepath}/{file_name}")
-
-        # Display the frame
-        # cv2.imshow("Frame", frame)
 
         # Wait for 15 seconds
         time.sleep(15)
