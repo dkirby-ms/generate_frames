@@ -31,10 +31,6 @@ def main():
         print("Error opening video capture")
         return
 
-    # Set the frame rate (15 frames per second)
-    frame_rate = 15
-    delay = int(1000 / frame_rate)
-
     while True:
         # Read frame from video capture
         ret, frame = cap.read()
